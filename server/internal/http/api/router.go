@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"net/http"
+	"website/server/common"
 
 	"github.com/gorilla/mux"
 )
@@ -18,8 +19,7 @@ func InitRouter(ctx context.Context) (serveMux *http.ServeMux) {
 	// subdomain name is later available as a variable in the Gorilla mux as follows, just like any other route variable:
 	//	vars := mux.Vars(r)
 	//	subdomain := vars["subdomain"]
-	// Change vibhormeshram to a variable
-	s := r.Host("{subdomain:[a-zA-Z0-9\\-]*}" + "." + "vibhormeshram").Subrouter()
+	s := r.Host(common.GetApplicationDomain()).Subrouter()
 
 	serveMux = http.NewServeMux()
 

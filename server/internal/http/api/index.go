@@ -19,8 +19,7 @@ func registerIndexRoutes(ctx context.Context, router *mux.Router, serveMux *http
 		subdomain := vars["subdomain"]
 
 		if strings.EqualFold(subdomain, "www") {
-			// TODO: remove hardcoded vibhormeshram.com
-			http.Redirect(w, r, "vibhormeshram.com", http.StatusPermanentRedirect)
+			http.Redirect(w, r, "localhost:8080", http.StatusPermanentRedirect)
 			return
 		}
 
