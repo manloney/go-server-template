@@ -14,3 +14,7 @@ const (
 	// HTTPClientTimeout specifies a time limit for requests made by a net/http Client.
 	// The timeout includes connection time, any redirects, and reading the response body.
 )
+
+const (
+	GoServerAppEndPoint = "http://localhost:8080"
+)
