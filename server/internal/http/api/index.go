@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 	"strings"
+	"website/server/common"
 
 	"github.com/gorilla/mux"
 )
@@ -19,7 +20,7 @@ func registerIndexRoutes(ctx context.Context, router *mux.Router, serveMux *http
 		subdomain := vars["subdomain"]
 
 		if strings.EqualFold(subdomain, "www") {
-			http.Redirect(w, r, "localhost:8080", http.StatusPermanentRedirect)
+			http.Redirect(w, r, common.GetApplicationEndPoint(), http.StatusPermanentRedirect)
 			return
 		}
 
